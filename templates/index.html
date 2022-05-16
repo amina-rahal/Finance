@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for own in owns %}
+                    <tr>
+                        <td>{{ own["Symbol"] }}</td>
+                        <td>{{ own["Shares"] }}</td>
+                        <td>{{ own["Price"] }}</td>
+                        <td>{{ own["Total"] }}</td>
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <td>CASH</td>
+                        <td>{{ cash }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan=3>grand-total</td>
+                        <td><strong>{{ TOT }}</strong></td>
+                    </tr>
+                </tfoot>
+        </table>
+
+   </div>
+
+{% endblock %}
